@@ -6,6 +6,10 @@
 package mystrategy;
 
 import data.DataGenerator;
+import sort.methods.*;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.util.Arrays;
 
 /**
  *
@@ -19,13 +23,32 @@ public class Client {
     public static void main(String[] args) {
 
         /* Algorytmy sortowania */
+        Bubblesort bubblesort = new Bubblesort();
+        Insertionsort insertionsort = new Insertionsort();
+        Quicksort quicksort = new Quicksort();
+        Selectionsort selectionsort = new Selectionsort();
         // http://www.algorytm.org/algorytmy-sortowania/
         
-        double[] dataNonSort = DataGenerator.generate(100000);
-        
+        double[] dataNonSort = DataGenerator.generate(100);
        /* Wzorzec Stratega */
-        //...
+        String type ="Quicksort";
+        switch (SortType.valueOf(type)){
+            case Bubblesort:
+                bubblesort.sort(dataNonSort);
+               break;
+            case Insertionsort:
+              insertionsort.sort(dataNonSort);
+                break;
+            case Quicksort:
+                quicksort.sort(dataNonSort);
+                break;
+            case Selectionsort:
+              selectionsort.sort(dataNonSort);
+                break;
+        }
+        Arrays.stream(dataNonSort).forEach( x -> System.out.println(x));
        
         System.out.println("Time: ??");
     }
+
 }
