@@ -5,10 +5,18 @@
  */
 package sort.methods;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  *
  * @author LeopardProMK
  */
-public class Quicksort {
+public class Quicksort implements Sort {
     /* http://www.algorytm.org/algorytmy-sortowania/sortowanie-szybkie-quicksort/quick-j.html */
+    @Override
+    public double[] sort(double[] arr) {
+      Arrays.sort(arr);
+      return arr;
+    }
 }
